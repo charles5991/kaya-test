@@ -132,7 +132,11 @@
     </main>
 
     <!-- Report Drawer -->
-    <Sheet v-model:open="isDrawerOpen" side="right" direction="right">
+    <Sheet
+      v-model:open="isDrawerOpen"
+      :side="isMobile ? 'bottom' : 'right'"
+      :direction="isMobile ? 'bottom' : 'right'"
+    >
       <HeroSection v-if="selectedReport" :report="selectedReport" />
     </Sheet>
 
@@ -185,6 +189,7 @@ const selectedReport = ref<Report | null>(null);
 const isDark = ref(false);
 const isDrawerOpen = ref(false);
 const showBackToTop = ref(false);
+const isMobile = ref(false);
 
 const fetchReports = async () => {
   try {
@@ -377,6 +382,14 @@ const handleScroll = () => {
   showBackToTop.value = window.scrollY > 300;
 };
 
+const checkMobile = () => {
+  isMobile.value = window.innerWidth < 768; // md breakpoint
+};
+
+const handleResize = () => {
+  checkMobile();
+};
+
 onMounted(() => {
   fetchReports();
 
@@ -397,11 +410,16 @@ onMounted(() => {
     localStorage.setItem("theme", "light");
   }
 
+  // Initialize mobile detection
+  checkMobile();
+
   window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleResize);
 });
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("resize", handleResize);
 });
 </script>
 

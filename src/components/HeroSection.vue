@@ -14,10 +14,10 @@
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 px-6 py-8 lg:px-8 lg:py-12">
+    <div class="relative z-10 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-12">
       <div class="max-w-4xl">
         <!-- Tag and Theme -->
-        <div class="flex flex-wrap gap-2 mb-6">
+        <div class="flex flex-wrap gap-2 mb-4 sm:mb-6">
           <span
             v-if="report.tag"
             class="bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1.5 rounded-full"
@@ -34,7 +34,7 @@
 
         <!-- Title -->
         <h1
-          class="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight"
+          class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold text-white mb-3 sm:mb-4 leading-tight"
         >
           {{ report.title }}
         </h1>
@@ -42,34 +42,34 @@
         <!-- Subtitle -->
         <p
           v-if="report.subtitle"
-          class="text-lg lg:text-xl text-gray-200 mb-6 leading-relaxed"
+          class="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-200 mb-4 sm:mb-6 leading-relaxed"
         >
           {{ report.subtitle }}
         </p>
 
         <!-- Metadata -->
         <div
-          class="flex flex-wrap items-center gap-6 text-sm text-gray-300 mb-6"
+          class="flex flex-wrap items-center gap-4 sm:gap-6 text-xs sm:text-sm text-gray-300 mb-4 sm:mb-6"
         >
           <div v-if="report.datePublished" class="flex items-center gap-2">
-            <CalendarIcon class="w-4 h-4" />
+            <CalendarIcon class="w-3 h-3 sm:w-4 sm:h-4" />
             <span>Published {{ formatDate(report.datePublished) }}</span>
           </div>
           <div v-if="report.dateUpdated" class="flex items-center gap-2">
-            <ClockIcon class="w-4 h-4" />
+            <ClockIcon class="w-3 h-3 sm:w-4 sm:h-4" />
             <span>Updated {{ formatDate(report.dateUpdated) }}</span>
           </div>
           <div v-if="report.id" class="flex items-center gap-2">
-            <HashIcon class="w-4 h-4" />
+            <HashIcon class="w-3 h-3 sm:w-4 sm:h-4" />
             <span>{{ report.id }}</span>
           </div>
         </div>
 
         <!-- CTA Button -->
-        <div v-if="report.cta" class="mb-8">
+        <div v-if="report.cta" class="mb-6 sm:mb-8">
           <Button
             size="lg"
-            class="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-8 py-3 text-base"
+            class="bg-white text-gray-900 hover:bg-gray-100 font-semibold px-6 py-2.5 sm:px-8 sm:py-3 text-sm sm:text-base w-full sm:w-auto"
           >
             {{ report.cta }}
             <ArrowRightIcon class="w-4 h-4 ml-2" />
@@ -79,30 +79,34 @@
     </div>
 
     <!-- Report Insights Section -->
-    <div class="border-t border-white/10 bg-black/20 backdrop-blur-sm">
-      <div class="px-6 py-8 lg:px-8">
+    <div class="bg-black/20 backdrop-blur-sm">
+      <div class="px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
         <div class="max-w-4xl">
           <h3
-            class="text-white font-semibold text-xl mb-4 flex items-center gap-3"
+            class="text-white font-semibold text-lg sm:text-xl mb-3 sm:mb-4 flex items-center gap-3"
           >
-            <div class="w-1 h-6 bg-blue-500 rounded-full"></div>
+            <div class="w-1 h-5 sm:h-6 bg-blue-500 rounded-full"></div>
             Report Insights
           </h3>
-          <div class="grid gap-4 md:grid-cols-2">
+          <div class="grid gap-3 sm:gap-4 md:grid-cols-2">
             <div
-              class="p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20"
+              class="p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20"
             >
-              <h4 class="text-white font-medium mb-2">Key Metrics</h4>
-              <p class="text-gray-200 text-sm leading-relaxed">
+              <h4 class="text-white font-medium mb-2 text-sm sm:text-base">
+                Key Metrics
+              </h4>
+              <p class="text-gray-200 text-xs sm:text-sm leading-relaxed">
                 Performance indicators and benchmarks for
                 {{ report.theme || "your campaign" }}.
               </p>
             </div>
             <div
-              class="p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20"
+              class="p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20"
             >
-              <h4 class="text-white font-medium mb-2">Actionable Insights</h4>
-              <p class="text-gray-200 text-sm leading-relaxed">
+              <h4 class="text-white font-medium mb-2 text-sm sm:text-base">
+                Actionable Insights
+              </h4>
+              <p class="text-gray-200 text-xs sm:text-sm leading-relaxed">
                 Strategic recommendations based on data analysis and trends.
               </p>
             </div>
@@ -110,20 +114,28 @@
 
           <!-- Mock Chart Area -->
           <div
-            class="mt-6 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
+            class="mt-4 sm:mt-6 p-4 sm:p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10"
           >
-            <div class="flex items-center justify-between mb-4">
-              <h4 class="text-white font-medium">Performance Overview</h4>
+            <div class="flex items-center justify-between mb-3 sm:mb-4">
+              <h4 class="text-white font-medium text-sm sm:text-base">
+                Performance Overview
+              </h4>
               <div class="flex gap-2">
-                <div class="w-3 h-3 bg-blue-400 rounded-full"></div>
-                <div class="w-3 h-3 bg-green-400 rounded-full"></div>
-                <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                <div
+                  class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-blue-400 rounded-full"
+                ></div>
+                <div
+                  class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-green-400 rounded-full"
+                ></div>
+                <div
+                  class="w-2.5 h-2.5 sm:w-3 sm:h-3 bg-yellow-400 rounded-full"
+                ></div>
               </div>
             </div>
             <div
-              class="h-32 bg-white/5 rounded-lg flex items-center justify-center"
+              class="h-24 sm:h-32 bg-white/5 rounded-lg flex items-center justify-center"
             >
-              <p class="text-gray-300 text-sm">
+              <p class="text-gray-300 text-xs sm:text-sm">
                 Interactive charts would be displayed here
               </p>
             </div>
