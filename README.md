@@ -9,7 +9,8 @@ A modern Vue 3 application that simulates Kaya's AI-first reporting engine for p
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 - **Error Handling**: Graceful handling of missing data and broken images
 - **Modern UI**: Clean, professional interface with hover effects and animations
-- **Modal System**: Click-to-view full report details without page navigation
+- **Dark/Light Theme**: Complete theme toggle with system preference detection
+- **Professional Drawer**: Right-sliding drawer using vaul-vue for report details
 
 ## Tech Stack
 
@@ -19,6 +20,8 @@ A modern Vue 3 application that simulates Kaya's AI-first reporting engine for p
 - **Vite** for fast development and building
 - **Vue Router** for navigation
 - **Lucide Vue** for icons
+- **vaul-vue** for drawer implementation
+- **class-variance-authority** for component variants
 
 ## Setup Instructions
 
@@ -46,6 +49,32 @@ A modern Vue 3 application that simulates Kaya's AI-first reporting engine for p
    ```bash
    npm run build
    ```
+
+## Design & Technical Decisions
+
+- **Vue 3 Composition API** for better TypeScript integration and maintainability
+- **Component-based architecture** following shadcn/vue patterns for reusability
+- **Static JSON data** to simulate CMS without backend complexity
+- **Tailwind CSS** utility-first approach for rapid development
+- **vaul-vue drawer** for native-feeling slide animations
+- **Theme-specific SVG fallbacks** for broken images
+
+## Tradeoffs (Time/Scope)
+
+- **Static data** instead of API integration
+- **Limited component library** (only essential UI components)
+- **Basic accessibility** without comprehensive testing
+- **No advanced performance optimizations** (code splitting, lazy loading)
+- **Dummy images** instead of real image optimization
+
+## Future Improvements
+
+- **API integration** with proper state management
+- **Complete testing suite** (unit, component, E2E)
+- **Enhanced UX** (search, filtering, animations)
+- **Full accessibility compliance**
+- **Performance optimizations** and PWA features
+- **Comprehensive component library**
 
 ## Project Structure
 
